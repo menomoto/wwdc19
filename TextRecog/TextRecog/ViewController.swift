@@ -37,13 +37,21 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
     private func reuqest() -> VNRecognizeTextRequest {
         let request = VNRecognizeTextRequest { (request, error) in
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
-            var text = ""
+            var cardNumber = ""
+            var date = ""
             for observation in observations {
                 guard let candidate = observation.topCandidates(1).first else { continue }
-                text += candidate.string + "\n"
+                let line = candidate.string.replacingOccurrences(of: " ", with: "")
+                if let _ = Int(line), line.count == 16 {
+                    cardNumber = candidate.string
+                }
+                
+                if let _ = candidate.string.range(of: "\\d\\d/\\d\\d", options: .regularExpression, range: nil, locale: nil) {
+                    date = candidate.string
+                }
             }
             
-            self.cardNumberLabel.text = text
+            self.cardNumberLabel.text = "\(cardNumber)\n\(date)"
         }
         request.recognitionLevel = .accurate
 
