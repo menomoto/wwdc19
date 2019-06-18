@@ -16,20 +16,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z75-ge-whz">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="171" y="433" width="72" height="30"/>
+                                <state key="normal" title="Start Scan"/>
                                 <connections>
                                     <action selector="didTapScanStartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mqa-Uw-vR1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C/N: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-4f-fnh">
+                                <rect key="frame" x="188" y="527" width="38.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gGC-4f-fnh" firstAttribute="top" secondItem="z75-ge-whz" secondAttribute="bottom" constant="64" id="Ehh-Tk-yTr"/>
                             <constraint firstItem="z75-ge-whz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gcb-Hu-PhR"/>
                             <constraint firstItem="z75-ge-whz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XKg-Ch-gXo"/>
+                            <constraint firstItem="gGC-4f-fnh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tjR-wR-SmZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cardNumberLabel" destination="gGC-4f-fnh" id="JSR-RD-vTD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
