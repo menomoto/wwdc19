@@ -24,6 +24,10 @@ class SellViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "出品フォーム"
+        
+        let langs = try! VNRecognizeTextRequest.supportedRecognitionLanguages(for: .fast, revision: VNRecognizeTextRequestRevision1)
+        print("######## revision: \(VNRecognizeTextRequestRevision1)")
+        print("######## langs: \(langs)")
     }
     
     private func createImagePickerVC() {

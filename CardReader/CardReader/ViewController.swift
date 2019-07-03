@@ -45,7 +45,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             for observation in observations {
                 guard let candidate = observation.topCandidates(1).first else { continue }
                 let line = candidate.string.replacingOccurrences(of: " ", with: "")
-                if let _ = Int(line), line.count == 16 {
+                if let _ = Int(line), line.count == 16, cardNumber.isEmpty {
                     cardNumber = candidate.string
                 }
                 
@@ -60,6 +60,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             self?.expireTextField.text = "\(expire)"
         }
         request.recognitionLevel = .accurate
+        request.usesLanguageCorrection = true
         
         return request
     }
