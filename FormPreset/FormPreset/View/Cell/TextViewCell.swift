@@ -28,7 +28,7 @@ class TextViewCell: UITableViewCell {
             if let recognizedText = recognizedText {
                 textView.text = recognizedText
             } else {
-                textView.text = "商品タイトル（任意）1000文字"
+                textView.text = "商品の説明（任意）1000文字"
             }
         default:
             break
